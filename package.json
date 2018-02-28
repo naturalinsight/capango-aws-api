@@ -1,0 +1,17 @@
+{
+  "name": "capango-aws-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apigClient.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "axios-retry": "^3.0.2",
+    "buffer": "^5.1.0",
+    "crypto-js": "^3.1.9-1",
+    "uri-template": "^1.0.1",
+    "url": "^0.11.0"
+  }
+}
