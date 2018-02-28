@@ -35,6 +35,7 @@ apigClient.newClient = function(config) {
 			sessionToken: '',
 			region: '',
 			invokeUrl: '',
+			maxRetries: 1,
 			apiKey: undefined,
 			defaultContentType: 'application/json',
 			defaultAcceptType: 'application/json'
