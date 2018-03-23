@@ -26,6 +26,8 @@ function checkForCredentials(authType, uri) {
 const apigClient = {};
 
 apigClient.newClient = function(config) {
+
+	console.dir(config);
 	var apigClient = {};
 
 	if (config === undefined) {
