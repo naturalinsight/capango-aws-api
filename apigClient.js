@@ -85,6 +85,10 @@ apigClient.newClient = function(config) {
 		defaultAcceptType: config.defaultAcceptType
 	};
 
+	console.log("sigV4ClientConfig START");
+	console.dir(sigV4ClientConfig);
+	console.log("sigV4ClientConfig END");
+
 	var authType = 'NONE';
 	if (sigV4ClientConfig.accessKey !== undefined && sigV4ClientConfig.accessKey !== '' && sigV4ClientConfig.secretKey !== undefined && sigV4ClientConfig.secretKey !== '') {
 		authType = 'AWS_IAM';
