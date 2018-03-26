@@ -42,8 +42,6 @@ apigClient.newClient = function(config) {
 		};
 	}
 
-	
-
 	if (config.accessKey === undefined) {
 		config.accessKey = '';
 	}
@@ -62,7 +60,6 @@ apigClient.newClient = function(config) {
 	if (config.invokeUrl === undefined) {
 		config.invokeUrl = '';
 	}
-	
 
 	//If defaultContentType is not defined then default to application/json
 	if (config.defaultContentType === undefined) {
@@ -125,11 +122,9 @@ apigClient.newClient = function(config) {
 		checkForCredentials(authType, uri);
 
 		var params = {};
-		var additionalParams = {
-			headers: {
-				"Origin": "http://capango.dynomite.io"
-			}
-		};
+		var additionalParams = {};
+
+		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
 
 		utils.assertParametersDefined(params, [], ['body']);
 
@@ -148,11 +143,9 @@ apigClient.newClient = function(config) {
 		checkForCredentials(authType, uri);
 
 		var body = {};
-		var additionalParams = {
-			headers: {
-				"Origin": "http://capango.dynomite.io"
-			}
-		};
+		var additionalParams = {};
+
+		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
@@ -177,11 +170,9 @@ apigClient.newClient = function(config) {
 			dummy: "dummy param"
 		};
 
-		var additionalParams = {
-			headers: {
-				"Origin": "http://capango.dynomite.io"
-			}
-		};
+		var additionalParams = {};
+
+		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
