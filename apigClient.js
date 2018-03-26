@@ -26,8 +26,6 @@ function checkForCredentials(authType, uri) {
 const apigClient = {};
 
 apigClient.newClient = function(config) {
-	console.log("NEW CLIENT")
-	console.dir(config);
 	var apigClient = {};
 
 	if (config === undefined) {
@@ -43,6 +41,8 @@ apigClient.newClient = function(config) {
 			defaultAcceptType: 'application/json'
 		};
 	}
+
+	
 
 	if (config.accessKey === undefined) {
 		config.accessKey = '';
@@ -62,6 +62,8 @@ apigClient.newClient = function(config) {
 	if (config.invokeUrl === undefined) {
 		config.invokeUrl = '';
 	}
+	
+
 	//If defaultContentType is not defined then default to application/json
 	if (config.defaultContentType === undefined) {
 		config.defaultContentType = 'application/json';
@@ -102,7 +104,9 @@ apigClient.newClient = function(config) {
 		defaultAcceptType: config.defaultAcceptType
 	};
 
-	
+	console.log("simpleHttpClientConfig START");
+	console.dir(simpleHttpClientConfig);
+	console.log("simpleHttpClientConfig END");
 
 	var apiGatewayClient = apiGatewayClientFactory.newClient(simpleHttpClientConfig, sigV4ClientConfig);
 
@@ -144,7 +148,11 @@ apigClient.newClient = function(config) {
 		checkForCredentials(authType, uri);
 
 		var body = {};
-		var additionalParams = {};
+		var additionalParams = {
+			headers: {
+				"Origin": "http://capango.dynomite.io"
+			}
+		};
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
@@ -169,7 +177,11 @@ apigClient.newClient = function(config) {
 			dummy: "dummy param"
 		};
 
-		var additionalParams = {};
+		var additionalParams = {
+			headers: {
+				"Origin": "http://capango.dynomite.io"
+			}
+		};
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
