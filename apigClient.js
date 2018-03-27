@@ -124,6 +124,10 @@ apigClient.newClient = function(config) {
 		var params = {};
 		var additionalParams = {};
 
+		if (!additionalParams.headers) {
+			additionalParams.headers = {};
+		}
+
 		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
 
 		utils.assertParametersDefined(params, [], ['body']);
@@ -144,8 +148,13 @@ apigClient.newClient = function(config) {
 
 		var body = {};
 		var additionalParams = {};
+		
+		if (!additionalParams.headers) {
+			additionalParams.headers = {};
+		}
 
 		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
+
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
@@ -171,6 +180,10 @@ apigClient.newClient = function(config) {
 		};
 
 		var additionalParams = {};
+		
+		if (!additionalParams.headers) {
+			additionalParams.headers = {};
+		}
 
 		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
 		var paramNames = this.getObjectPropertyNames(params);
