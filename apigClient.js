@@ -71,7 +71,7 @@ apigClient.newClient = function(config) {
 	}
 
 	// extract endpoint and path from url
-	var invokeUrl = config.invokeUrl;
+	var invokeUrl = 'https://0kvph6bvb0.execute-api.us-east-1.amazonaws.com/dev';
 	var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
 	var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -115,13 +115,6 @@ apigClient.newClient = function(config) {
 
 		var params = {};
 		var additionalParams = {};
-
-		if (!additionalParams.headers) {
-			additionalParams.headers = {};
-		}
-
-		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
-
 		utils.assertParametersDefined(params, [], ['body']);
 
 		var getRequestpostRequest = {
@@ -140,13 +133,6 @@ apigClient.newClient = function(config) {
 
 		var body = {};
 		var additionalParams = {};
-		
-		if (!additionalParams.headers) {
-			additionalParams.headers = {};
-		}
-
-		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
-
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
@@ -172,12 +158,6 @@ apigClient.newClient = function(config) {
 		};
 
 		var additionalParams = {};
-		
-		if (!additionalParams.headers) {
-			additionalParams.headers = {};
-		}
-
-		additionalParams.headers["Origin"] = "http://capango.dynomite.io";
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
