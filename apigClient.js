@@ -150,28 +150,25 @@ apigClient.newClient = function(config) {
 		return apiGatewayClient.makeRequest(getRequest, authType, additionalParams, config.apiKey);
 	};
 
-	apigClient.delete = function (uri, params, query, body) {
+	apigClient.delete = function (uri, params, query) {
 		checkForCredentials(authType, uri);
 
-		var thebody = body ? body : {
-			dummy: "dummy param"
-		};
-
+		var body = {};
 		var additionalParams = {};
 		var paramNames = this.getObjectPropertyNames(params);
 		var queryNames = this.getObjectPropertyNames(query);
 
 		utils.assertParametersDefined(params, paramNames, ['body']);
 
-		var deleteRequest = {
+		var getRequest = {
 			verb: 'DELETE',
 			path: pathComponent + uritemplate(uri).expand(utils.parseParametersToObject(params, paramNames)),
 			headers: utils.parseParametersToObject(params, []),
 			queryParams: utils.parseParametersToObject(query, queryNames),
-			body: thebody
+			body: body
 		};
 
-		return apiGatewayClient.makeRequest(deleteRequest, authType, additionalParams, config.apiKey);
+		return apiGatewayClient.makeRequest(getRequest, authType, additionalParams, config.apiKey);
 	};
 
 	return apigClient;
